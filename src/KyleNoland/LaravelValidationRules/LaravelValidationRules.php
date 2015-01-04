@@ -270,9 +270,9 @@ class LaravelValidationRules extends Validator
 	 */
 	public function validatePhone($attribute, $value, $parameters)
 	{
-		$phone = preg_replace('/\D/', '', $value);
+		$regex = "/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i";
 
-		return strlen($phone) == 10 or strlen($phone) == 11;
+		return preg_match($regex, $value);
 	}
 
 	/**
