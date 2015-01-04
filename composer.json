@@ -1,0 +1,23 @@
+{
+    "name": "kyle-noland/laravel-validation-rules",
+    "description": "Additional validation rules for use in your Laravel projects",
+    "authors": [
+        {
+            "name": "Kyle Noland",
+            "email": "kylenoland@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "KyleNoland\\LaravelValidationRules\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
