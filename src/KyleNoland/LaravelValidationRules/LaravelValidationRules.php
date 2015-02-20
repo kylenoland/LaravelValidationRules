@@ -182,7 +182,7 @@ class LaravelValidationRules extends Validator
 	 */
 	public function validateCurrency($attribute, $value, $parameters)
 	{
-		return (bool) preg_match('/(\d+(.|,))+(\d)+$/', $value);
+		return (bool) preg_match('"^\$?\-?([1-9]{1}[0-9]{0,2}(\,\d{3})*(\.\d{0,2})?|[1-9]{1}\d{0,}(\.\d{0,2})?|0(\.\d{0,2})?|(\.\d{1,2}))$|^\-?\$?([1-9]{1}\d{0,2}(\,\d{3})*(\.\d{0,2})?|[1-9]{1}\d{0,}(\.\d{0,2})?|0(\.\d{0,2})?|(\.\d{1,2}))$|^\(\$?([1-9]{1}\d{0,2}(\,\d{3})*(\.\d{0,2})?|[1-9]{1}\d{0,}(\.\d{0,2})?|0(\.\d{0,2})?|(\.\d{1,2}))\)$"', $value);
 	}
 
 
