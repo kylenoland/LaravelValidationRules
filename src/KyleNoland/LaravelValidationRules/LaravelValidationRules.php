@@ -127,6 +127,71 @@ class LaravelValidationRules extends Validator
 	}
 
 	/**
+	 * Determine if a given date string is a future date
+	 *
+	 * @param $attribute
+	 * @param $value
+	 * @param $parameters
+	 *
+	 * @return bool
+	 */
+	public function validateFuture($attribute, $value, $parameters)
+	{
+		$now = strtotime('now');
+		$date = strtotime($value);
+
+		return $date > $now;
+	}
+
+	/**
+	 * Determine if a given date string is a past date
+	 *
+	 * @param $attribute
+	 * @param $value
+	 * @param $parameters
+	 *
+	 * @return bool
+	 */
+	public function validatePast($attribute, $value, $parameters)
+	{
+		return ! $this->validateFuture($attribute, $value, $parameters);
+	}
+
+	/**
+	 * Determine if a given date string is a future date or today
+	 *
+	 * @param $attribute
+	 * @param $value
+	 * @param $parameters
+	 *
+	 * @return bool
+	 */
+	public function validateTodayOrFuture($attribute, $value, $parameters)
+	{
+		$now = strtotime('now');
+		$date = strtotime($value);
+
+		return $date >= $now;
+	}
+
+	/**
+	 * Determine if a given date string is a past date or today
+	 *
+	 * @param $attribute
+	 * @param $value
+	 * @param $parameters
+	 *
+	 * @return bool
+	 */
+	public function validateTodayOrPast($attribute, $value, $parameters)
+	{
+		$now = strtotime('now');
+		$date = strtotime($value);
+
+		return $date <= $now;
+	}
+
+	/**
 	 * Determine if an array is not completely empty
 	 *
 	 * @param  $attribute
