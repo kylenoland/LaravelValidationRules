@@ -12,6 +12,7 @@ class LaravelValidationRulesServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
+
 	/**
 	 * Bootstrap the application events.
 	 *
@@ -19,13 +20,12 @@ class LaravelValidationRulesServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('kyle-noland/laravel-validation-rules');
-
 		Validator::resolver(function($translator, $data, $rules, $messages)
 		{
 			return new LaravelValidationRules($translator, $data, $rules, $messages);
 		});
 	}
+
 
 	/**
 	 * Register the service provider.
@@ -37,6 +37,7 @@ class LaravelValidationRulesServiceProvider extends ServiceProvider {
 		//
 	}
 
+	
 	/**
 	 * Get the services provided by the provider.
 	 *
